@@ -140,3 +140,12 @@ makeBroccoli();
 
 // Bonus 2 - Promise all
 // ...
+let promiseArr = [];
+for (let i = 0; i < 8; i++) {
+  promiseArr.push(obtainInstruction("brusselsSprouts", i));
+}
+Promise.all(promiseArr).then((values) => {
+  values.forEach((elem) => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${elem}</li>`;
+  });
+});
